@@ -13,13 +13,7 @@ export const Query01 = () => {
     error,
     isSuccess,
     refetch,
-  } = useQuery({
-    queryKey: ["test"],
-    queryFn: () => todoService.getTodo({ id: 4 }),
-    gcTime: 5000,
-    staleTime: 3000,
-    enabled: false,
-  });
+  } = useTodo({ id: 4 });
 
   const handleRefetch = () => {
     refetch();
@@ -78,12 +72,7 @@ export const Query01 = () => {
 };
 
 const TestComponent = () => {
-  const { data, isPending, isError } = useQuery({
-    queryKey: ["test"],
-    queryFn: () => todoService.getTodo({ id: 4 }),
-    gcTime: 2000,
-    staleTime: 2000,
-  });
+  const { data, isPending, isError } = useTodo({ id: 4 });
 
   if (isPending) {
     return <div>Loading...</div>;
@@ -98,6 +87,15 @@ const TestComponent = () => {
       <h4>title: {data.title}</h4>
     </div>
   );
+};
+
+const useTodo = ({ id }: { id: number }) => {
+  return useQuery({
+    queryKey: ["test"],
+    queryFn: () => todoService.getTodo({ id }),
+    gcTime: 5000,
+    staleTime: 3000,
+  });
 };
 
 const QueryStatus = ({

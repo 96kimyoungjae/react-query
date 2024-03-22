@@ -21,7 +21,7 @@ function App() {
         Show Query01
       </button>
       {visible && <Query01 />}
-      <ErrorBoundary
+      {/* <ErrorBoundary
         fallbackRender={({ error }) => {
           return <div>{error.message}</div>;
         }}
@@ -29,7 +29,7 @@ function App() {
         <Suspense fallback={<div>Loading...</div>}>
           <Query03 />
         </Suspense>
-      </ErrorBoundary>
+      </ErrorBoundary> */}
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

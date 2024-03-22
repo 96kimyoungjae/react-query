@@ -21,7 +21,7 @@ class TodoService implements ITodoService {
   async getTodoList() {
     const { data } = await this.httpClient.request<GetTodoResponse>({
       method: "GET",
-      url: "/items/deal-items-v3",
+      url: "/todos",
     });
 
     return data;
