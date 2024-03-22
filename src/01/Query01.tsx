@@ -55,7 +55,6 @@ export const Query01 = () => {
   return (
     <div>
       <h4>title: {data.title}</h4>
-      <button onClick={handleRefetch}>refetch</button>
       <button onClick={show02}>show test component</button>
 
       <QueryStatus
